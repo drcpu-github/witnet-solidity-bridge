@@ -55,7 +55,7 @@ async function migrateFlattened (network) {
   console.log(
     `> Migrating from ${process.env.FLATTENED_DIRECTORY} into "${realm}:${network}"..."`
   )
-  await cli.exec(`truffle migrate --reset --config truffle-config.flattened.js --network ${network}`)
+  await cli.exec(`truffle migrate --compile-all --reset --network ${network}`)
     .catch(err => {
       console.error(err)
       process.exit(1)
